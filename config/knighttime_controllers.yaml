@@ -1,0 +1,60 @@
+generic_hw_control_loop:
+  loop_hz: 300
+  cycle_time_error_threshold: 0.01
+
+hardware_interface:
+   joints:
+      - main_mast_joint
+      - second_stage_joint
+      - extension_joint
+   sim_control_mode: 0 # 0: position, 1: velocity
+
+joint_state_controller:
+   type:         joint_state_controller/JointStateController
+   publish_rate: 50
+
+# Joint Trajectory Controller -------------------------------
+# For detailed explanations of parameter see http://wiki.ros.org/joint_trajectory_controller
+position_trajectory_controller:
+   type: position_controllers/JointTrajectoryController
+   # These joints can likely just be copied from the hardware_interface list above
+   joints:
+      - main_mast_joint
+      - second_stage_joint
+      - extension_joint
+   constraints:
+      goal_time: 5.0
+      #stopped_position_tolerance: 0.4 # Defaults to 0.01
+      main_mast_joint:
+          trajectory: 0.60
+          goal:       0.15
+      second_stage_joint:
+          trajectory: 0.60
+          goal:       0.15
+      extension_joint:
+          trajectory: 0.60
+          goal:       0.15
+
+velocity_trajectory_controller:
+   type: velocity_controllers/JointTrajectoryController
+   # These joints can likely just be copied from the hardware_interface list above
+   joints:
+      - main_mast_joint
+      - second_stage_joint
+      - extension_joint 
+   gains: # Required because we're controlling a velocity interface
+      main_mast_joint: {p: 1,  d: 0, i: 0, i_clamp: 1}
+      second_stage_joint: {p: 1,  d: 0, i: 0, i_clamp: 1}
+      extension_joint: {p: 1,  d: 0, i: 0, i_clamp: 1}
+   constraints:
+      goal_time: 5.0
+      #stopped_position_tolerance: 0.4 # Defaults to 0.01
+      main_mast_joint:
+          trajectory: 0.60
+          goal:       0.15
+      second_stage_joint:
+          trajectory: 0.60
+          goal:       0.15
+      extension_joint:
+          trajectory: 0.60
+          goal:       0.15
