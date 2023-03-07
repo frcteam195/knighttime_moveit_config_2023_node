@@ -1,23 +1,45 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <root>
  <tabbed_widget name="Main Window" parent="main_window">
-  <Tab containers="1" tab_name="Velocity Controller">
+  <Tab containers="1" tab_name="Second Stage">
    <Container>
-    <DockSplitter sizes="0.5;0.5" count="2" orientation="-">
+    <DockSplitter sizes="0.500583;0.499417" count="2" orientation="-">
      <DockArea name="...">
-      <plot flip_x="false" flip_y="false" style="Lines" mode="TimeSeries">
-       <range right="9.979986" top="1.049542" bottom="-0.667425" left="0.000000"/>
+      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
+       <range top="0.092767" right="148.455146" bottom="-0.002238" left="128.475070"/>
        <limitY/>
-       <curve name="/velocity_trajectory_controller/state/actual/positions.1" color="#1f77b4"/>
-       <curve name="/velocity_trajectory_controller/state/desired/positions.1" color="#1ac938"/>
+       <curve color="#1f77b4" name="/velocity_trajectory_controller/state/actual/positions.1"/>
+       <curve color="#1ac938" name="/velocity_trajectory_controller/state/desired/positions.1"/>
       </plot>
      </DockArea>
      <DockArea name="...">
-      <plot flip_x="false" flip_y="false" style="Lines" mode="TimeSeries">
-       <range right="9.979986" top="3.276598" bottom="-0.079917" left="0.000000"/>
+      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
+       <range top="0.001534" right="148.455146" bottom="-0.062893" left="128.475070"/>
        <limitY/>
-       <curve name="/velocity_trajectory_controller/state/actual/velocities.1" color="#d62728"/>
-       <curve name="/velocity_trajectory_controller/state/desired/velocities.1" color="#ff7f0e"/>
+       <curve color="#d62728" name="/velocity_trajectory_controller/state/actual/velocities.1"/>
+       <curve color="#ff7f0e" name="/velocity_trajectory_controller/state/desired/velocities.1"/>
+      </plot>
+     </DockArea>
+    </DockSplitter>
+   </Container>
+  </Tab>
+  <Tab containers="1" tab_name="Main Mast">
+   <Container>
+    <DockSplitter sizes="0.500583;0.499417" count="2" orientation="-">
+     <DockArea name="...">
+      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
+       <range top="0.006671" right="148.455146" bottom="-0.000251" left="128.475070"/>
+       <limitY/>
+       <curve color="#1f77b4" name="/velocity_trajectory_controller/state/actual/positions.0"/>
+       <curve color="#d62728" name="/velocity_trajectory_controller/state/desired/positions.0"/>
+      </plot>
+     </DockArea>
+     <DockArea name="...">
+      <plot mode="TimeSeries" flip_x="false" flip_y="false" style="Lines">
+       <range top="0.100000" right="148.455146" bottom="-0.100000" left="128.475070"/>
+       <limitY/>
+       <curve color="#1ac938" name="/velocity_trajectory_controller/state/actual/velocities.0"/>
+       <curve color="#ff7f0e" name="/velocity_trajectory_controller/state/desired/velocities.0"/>
       </plot>
      </DockArea>
     </DockSplitter>

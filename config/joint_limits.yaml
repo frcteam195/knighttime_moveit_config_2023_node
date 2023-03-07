@@ -17,13 +17,16 @@ joint_limits:
     max_acceleration: 0
   main_mast_joint:
     has_velocity_limits: true
-    max_velocity: 3
+    max_velocity: 1.5
     has_acceleration_limits: true
-    max_acceleration: 20
+    max_acceleration: 2
   second_stage_joint:
     has_velocity_limits: true
-    max_velocity: 10
+    max_velocity: 2
+    # real
+    # max_velocity: 3
     # max_velocity: 20.944
     has_acceleration_limits: true
-    max_acceleration: 20
-    # max_acceleration: 47.124
+    max_acceleration: 4.5
+    # real
+    # max_acceleration: 6.9

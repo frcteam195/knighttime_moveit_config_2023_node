@@ -43,18 +43,22 @@ velocity_trajectory_controller:
       - second_stage_joint
       - extension_joint 
    gains: # Required because we're controlling a velocity interface
-      main_mast_joint: {p: 1,  d: 0, i: 0, i_clamp: 1}
-      second_stage_joint: {p: 1,  d: 0, i: 0, i_clamp: 1}
+      main_mast_joint: {p: 0.305,  d: 0.003, i: 0, i_clamp: 1}
+      second_stage_joint: {p: 0.31,  d: 0.027, i: 0.0, i_clamp: 1}
       extension_joint: {p: 1,  d: 0, i: 0, i_clamp: 1}
    constraints:
       goal_time: 5.0
       #stopped_position_tolerance: 0.4 # Defaults to 0.01
       main_mast_joint:
           trajectory: 0.60
-          goal:       0.15
+          goal:       0.060
       second_stage_joint:
           trajectory: 0.60
-          goal:       0.15
+          goal:       0.035
       extension_joint:
           trajectory: 0.60
           goal:       0.15
+
+   velocity_ff:
+      main_mast_joint: 0.03
+      second_stage_joint: 0.076
